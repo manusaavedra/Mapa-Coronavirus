@@ -43,8 +43,10 @@
             const map = L.map('map',{
                 center: [0,0],
                 zoom: 3,
-                minZoom: 2
+                minZoom: 2,
+                maxBounds: [0,0]
             });
+
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
