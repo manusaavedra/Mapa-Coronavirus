@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/styles.css">
+    <script src="./static/js/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mapa Covid - 19</h2>
+    <div id="map"></div>
+    <script>
+
+        async function getData() {
+            
+            const data = await fetch('http://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest')
+            const response = await data.json()
+
+            return response;
+        }
+
+        function renderPopup(item) {
+            return `
+                <h2>${item.countryregion} ${item.provincestate} </h2>
+                <p><b>casos confirmados:</b>${item.confirmed}</p>
+                <p><b>muertes:</b>${item.deaths}</p>
+                <p><b>recuperados:</b>${item.recovered}</p>
+            `
+        }
+
+        async function render() {
+            
+            document.getElementById("map").innerHTML = `
+                <div class="loading"><span>cargando datos desde que inició la pandemia...</span></div>
+            `
+
+            const data = await getData()
+            
+            console.log(data)
+
+            const map = L.map('map').setView([0, 0], 3);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            data.map((item) => {
+                
+                const Icon = L.icon({
+                    iconUrl: './static/img/marker-icon.png',
+                    iconSize: [20, 20]
+                });
+
+
+                const marker = L.marker([item.location.lat, item.location.lng],{
+                    icon: Icon
+                }).addTo(map)
+                .bindPopup(renderPopup(item))
+                
+                marker.addEventListener('click', function() {
+                    marker.openOn(map)
+                })
+            })
+        }
+
+        render()
+        
+
+        
+    </script>
+</body>
+</html>
