@@ -37,8 +37,8 @@
 .leaflet-safari .leaflet-tile-container {
 	width: 1600px;
 	height: 1600px;
-	-webkit-transform-origin: 0 0;
-	}
+	--webkit-transform-origin: 0 0;
+}
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
 	display: block;
@@ -532,8 +532,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 
 .leaflet-oldie .leaflet-popup-content-wrapper {
-	-ms-zoom: 1;
-	}
+	--ms-zoom: 1;
+}
 .leaflet-oldie .leaflet-popup-tip {
 	width: 24px;
 	margin: 0 auto;
