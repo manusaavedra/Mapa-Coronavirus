@@ -1,3 +1,3 @@
-# map-covid19
+# mapa de contagios por coronavirus
 
-Simple ejemplo de implementación de la biblioteca de código abierto https://leafletjs.com/
+Simple ejemplo de implementación de la biblioteca para javascript https://www.mapbox.com/
