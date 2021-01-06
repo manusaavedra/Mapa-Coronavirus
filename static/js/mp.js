@@ -22,11 +22,8 @@ async function render() {
     document.getElementById("map").innerHTML = `
         <div class="loading"><span>cargando datos desde que inició la pandemia...</span></div>
     `
-
     const data = await getData()
     
-    console.log(data)
-
     mapboxgl.accessToken = 'pk.eyJ1IjoibWFudXNhYXYzZHJhIiwiYSI6ImNramxpam8xdzBvcnkycnMyM2tqb3U1YnUifQ.sgrb1Z5zBCkoI85LUyn2lA';
     
     const map = new mapboxgl.Map({
