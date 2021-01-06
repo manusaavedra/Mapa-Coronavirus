@@ -2,7 +2,7 @@
 
 async function getData() {
             
-    const data = await fetch('http://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest')
+    const data = await fetch('https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/latest')
     const response = await data.json()
 
     return response;
