@@ -35,10 +35,6 @@ async function render() {
         zoom: 2
     });
 
-    const popup = new mapboxgl.Popup()
-
-    
-
     const Icon = {
         'url': './static/img/marker-icon.png',
         'size': {
