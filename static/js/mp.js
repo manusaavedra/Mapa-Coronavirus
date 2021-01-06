@@ -11,7 +11,7 @@ async function getData() {
 function renderPopup(item) {
     return `
         <h2>${item.countryregion} ${item.provincestate} </h2>
-        <p><b>casos confirmados:</b> ${item.confirmed.toLocaleString()} </p>
+        <p><b>casos confirmados: </b> ${item.confirmed.toLocaleString()} </p>
         <p><b>muertes:</b> ${item.deaths.toLocaleString()} </p>
         <p><b>recuperados:</b> ${item.recovered ? item.recovered.toLocaleString() : 0} </p>
     `
@@ -31,6 +31,9 @@ async function render() {
         style: 'mapbox://styles/mapbox/dark-v10',
         zoom: 2
     });
+
+    const nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
 
     const Icon = {
         'url': './static/img/marker-icon.png',
