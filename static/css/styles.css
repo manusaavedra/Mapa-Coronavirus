@@ -10,6 +10,10 @@ h2 {
     line-height: 60px;
 }
 
+a {
+    color: #fff;
+}
+
 p {
     line-height: 20px;
 }
@@ -24,7 +28,7 @@ p {
     outline: none;
 }
 
-.map-title {
+footer {
     position: fixed;
     bottom: 0;
     left: 0;
