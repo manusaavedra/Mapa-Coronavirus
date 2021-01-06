@@ -11,9 +11,9 @@ async function getData() {
 function renderPopup(item) {
     return `
         <h2>${item.countryregion} ${item.provincestate} </h2>
-        <p><b>casos confirmados:</b>${(item.confirmed).toLocaleString()}</p>
-        <p><b>muertes:</b>${(item.deaths).toLocaleString()}</p>
-        <p><b>recuperados:</b>${(item.recovered).toLocaleString()}</p>
+        <p><b>casos confirmados:</b> ${item.confirmed.toLocaleString()} </p>
+        <p><b>muertes:</b> ${item.deaths.toLocaleString()} </p>
+        <p><b>recuperados:</b> ${item.recovered ? item.recovered.toLocaleString() : 0} </p>
     `
 }
 
