@@ -11,7 +11,17 @@ h2 {
 }
 
 p {
-    line-height: 5px;
+    line-height: 20px;
+}
+
+.mapboxgl-popup-close-button:hover {
+    outline: none;
+}
+
+.mapboxgl-popup-close-button {
+    margin: 6px 8px 0 0;
+    width: 15px;
+    outline: none;
 }
 
 .map-title {
